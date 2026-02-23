@@ -124,7 +124,7 @@
             filter: drop-shadow(0 4px 30px rgba(208, 168, 80, 0.15));
         }
 
-        .hero h1 {
+        . h1 {
             font-family: 'Cormorant Garamond', serif;
             font-size: clamp(2.8rem, 6vw, 4.5rem);
             font-weight: 700;
@@ -135,7 +135,7 @@
             animation: fadeUp 0.8s ease 0.15s forwards;
         }
 
-        .hero-tagline {
+        .-tagline {
             font-family: 'Cormorant Garamond', serif;
             font-size: clamp(1rem, 2vw, 1.3rem);
             color: var(--gold);
@@ -147,7 +147,7 @@
             animation: fadeUp 0.8s ease 0.3s forwards;
         }
 
-        .hero-desc {
+        .-desc {
             max-width: 560px;
             font-size: 1.05rem;
             color: var(--text-muted);
@@ -156,7 +156,7 @@
             animation: fadeUp 0.8s ease 0.45s forwards;
         }
 
-        .hero-cta {
+        .-cta {
             margin-top: 2.5rem;
             display: flex;
             gap: 1rem;
@@ -448,8 +448,8 @@
             .mobile-toggle { display: block; z-index: 101; }
 
             .about-content { grid-template-columns: 1fr; gap: 2.5rem; }
-            .hero { padding: 5rem 1.5rem 3rem; }
-            .hero-logo { width: 120px; height: 120px; }
+            . { padding: 5rem 1.5rem 3rem; }
+            .-logo { width: 120px; height: 120px; }
             section { padding: 4rem 1.5rem; }
         }
     </style>
@@ -469,14 +469,14 @@
     </button>
 </nav>
 
-<!-- HERO -->
+<!--  -->
 <section class="hero">
     <img src="logo.png" alt="Elias Victor" class="hero-logo">
     <h1>Elias Victor</h1>
-    <p class="hero-tagline">Automated Futures Trading Tools</p>
+    <p class="hero-tagline">Trading Technology & Execution Systems</p>
     <p class="hero-desc">
-        Automated trading indicators and strategies for futures markets. 
-       <br/>Tools designed and tested for traders who want systematic, rules-based approaches to the markets.
+        Systematic trading tools and execution infrastructure for CME futures markets. 
+       <br/>Every tool is designed around rules-based logic, tested against live market data, and built with security and reliability as core requirements.
     </p>
     <div class="hero-cta">
         <a href="https://www.tradingview.com/u/EliasVictor/#published-scripts" target="_blank" rel="noopener" class="btn btn-primary">
@@ -556,17 +556,15 @@
         <div class="about-content">
             <div class="about-text reveal">
                 <p>
-                    Elias Victor, LLC is a California-based trading technology company focused on building automated indicators 
-                    and strategies for futures markets. Every tool is developed with a single principle: systematic, 
-                    rules-based execution removes emotion from trading.
+                    Elias Victor, LLC is a California-based trading technology company building systematic execution tools 
+                    for futures markets. The core principle: rules-based systems remove emotion from trading, and transparent 
+                    source code lets traders understand exactly what they're running.
                 </p>
                 <p>
-                    Our approach centers on strategies combined with analysis across multiple timeframes. Each indicator is rigourously tested against live market conditions 
-                    on futures markets before publication.
-                </p>
-                <p>
-                    All indicators are built in PineScript v6 on TradingView with source code available on GitHub. 
-                    We believe in transparency. Traders should understand the tools they rely on.
+                    Our work spans indicator development in PineScript v6, webhook-based execution automation, and secure 
+                    API integration across trading platforms. Every tool is designed around tested market structure 
+                    concepts &mdash; session-based price action, VWAP frameworks, and volatility regime filtering &mdash; then 
+                    validated against live CME data before publication.
                 </p>
                 <p>
                     All tools are for educational purposes only. Traders are responsible for their own accounts and risk management. All tools and code are copyright protected.
