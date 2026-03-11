@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Elias Victor | Automated Futures Trading Tools</title>
-    <meta name="description" content="Automated futures trading indicators and strategies. Systematic, rules-based tools built for serious traders.">
+    <title>Elias Victor | TradingView Tools for CME Futures Traders</title>
+    <meta name="description" content="Rules-based TradingView indicators and strategy frameworks for CME futures traders. Built in Pine Script v6 for multi-timeframe analysis, structured execution, and automation-ready alerts.">
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -36,7 +36,6 @@
             overflow-x: hidden;
         }
 
-        /* ── NAV ── */
         nav {
             position: fixed;
             top: 0;
@@ -90,7 +89,6 @@
             transition: 0.3s;
         }
 
-        /* ── HERO ── */
         .hero {
             min-height: 100vh;
             display: flex;
@@ -142,13 +140,13 @@
             letter-spacing: 0.15em;
             text-transform: uppercase;
             font-weight: 500;
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
             opacity: 0;
             animation: fadeUp 0.8s ease 0.3s forwards;
         }
 
         .hero-desc {
-            max-width: 560px;
+            max-width: 700px;
             font-size: 1.05rem;
             color: var(--text-muted);
             line-height: 1.8;
@@ -168,6 +166,7 @@
         .btn {
             display: inline-flex;
             align-items: center;
+            justify-content: center;
             gap: 0.5rem;
             padding: 0.8rem 1.8rem;
             border-radius: 2px;
@@ -195,6 +194,28 @@
             background: rgba(212, 168, 67, 0.06);
         }
 
+        .proof-strip {
+            margin-top: 2rem;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.75rem;
+            max-width: 900px;
+            opacity: 0;
+            animation: fadeUp 0.8s ease 0.75s forwards;
+        }
+        .proof-strip span {
+            font-size: 0.74rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--text-light);
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(212, 168, 67, 0.1);
+            padding: 0.55rem 0.8rem;
+            border-radius: 2px;
+        }
+
         .scroll-hint {
             position: absolute;
             bottom: 2rem;
@@ -212,7 +233,6 @@
             animation: pulse 2s ease-in-out infinite;
         }
 
-        /* ── SECTIONS ── */
         section { padding: 6rem 2rem; }
 
         .section-label {
@@ -232,7 +252,7 @@
         }
         .section-subtitle {
             color: var(--text-muted);
-            max-width: 550px;
+            max-width: 650px;
             font-size: 1rem;
             line-height: 1.7;
         }
@@ -242,7 +262,6 @@
             margin: 0 auto;
         }
 
-        /* ── INDICATORS ── */
         #indicators { background: var(--navy-mid); }
         .indicators-grid {
             display: grid;
@@ -258,6 +277,9 @@
             transition: all 0.35s ease;
             position: relative;
             overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            min-height: 100%;
         }
         .indicator-card::before {
             content: '';
@@ -311,6 +333,7 @@
             display: flex;
             flex-wrap: wrap;
             gap: 0.4rem;
+            margin-top: auto;
         }
         .indicator-tags span {
             font-size: 0.72rem;
@@ -320,8 +343,17 @@
             border-radius: 2px;
             letter-spacing: 0.04em;
         }
+        .card-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-top: 1.25rem;
+        }
+        .card-actions .btn {
+            padding: 0.7rem 1.1rem;
+            font-size: 0.72rem;
+        }
 
-        /* ── ABOUT ── */
         #about { background: var(--navy); }
         .about-content {
             display: grid;
@@ -357,7 +389,6 @@
             font-size: 0.95rem;
         }
 
-        /* ── CONNECT ── */
         #connect { background: var(--navy-mid); }
         .connect-grid {
             display: grid;
@@ -398,7 +429,6 @@
             color: var(--text-muted);
         }
 
-        /* ── FOOTER ── */
         footer {
             padding: 3rem 2rem;
             border-top: 1px solid rgba(212, 168, 67, 0.06);
@@ -410,7 +440,6 @@
             letter-spacing: 0.04em;
         }
 
-        /* ── ANIMATIONS ── */
         @keyframes fadeUp {
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
@@ -430,7 +459,6 @@
             transform: translateY(0);
         }
 
-        /* ── RESPONSIVE ── */
         @media (max-width: 768px) {
             .nav-links { display: none; }
             .nav-links.open {
@@ -451,12 +479,13 @@
             .hero { padding: 5rem 1.5rem 3rem; }
             .hero-logo { width: 120px; height: 120px; }
             section { padding: 4rem 1.5rem; }
+            .hero-cta { flex-direction: column; width: 100%; max-width: 320px; }
+            .hero-cta .btn { width: 100%; }
         }
     </style>
 </head>
 <body>
 
-<!-- NAV -->
 <nav id="navbar">
     <a href="#" class="nav-brand">Elias Victor</a>
     <div class="nav-links" id="navLinks">
@@ -469,83 +498,116 @@
     </button>
 </nav>
 
-<!-- HERO -->
 <section class="hero">
     <img src="logo.png" alt="Elias Victor" class="hero-logo">
     <h1>Elias Victor</h1>
-    <p class="hero-tagline">Trading Technology & Execution Systems</p>
+    <p class="hero-tagline">TradingView Tools for CME Futures Traders</p>
     <p class="hero-desc">
-        Systematic trading tools and execution infrastructure for CME futures markets. 
-       <br/>Every tool is designed around rules-based logic, tested against live market data, and built with security and reliability as core requirements.
+        Rules-based indicators and strategy frameworks built for futures market analysis,
+        multi-timeframe confirmation, and automation-ready alerts.
+        <br>Designed in Pine Script v6 and tested in live market conditions.
     </p>
     <div class="hero-cta">
-        <a href="https://www.tradingview.com/u/EliasVictor/#published-scripts" target="_blank" rel="noopener" class="btn btn-primary">
+        <a href="#indicators" class="btn btn-primary">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
+            Browse Indicators
+        </a>
+        <a href="https://www.tradingview.com/u/EliasVictor/#published-scripts" target="_blank" rel="noopener" class="btn btn-outline">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
-            View on TradingView
+            TradingView
         </a>
-        <a href="https://github.com/eliasvictor-trading" target="_blank" rel="noopener" class="btn btn-outline">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.2 11.39.6.11.82-.26.82-.58v-2.03c-3.34.73-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.09-.75.08-.73.08-.73 1.2.08 1.84 1.24 1.84 1.24 1.07 1.83 2.81 1.3 3.5 1 .11-.78.42-1.3.76-1.6-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.13-.3-.54-1.52.12-3.18 0 0 1-.32 3.3 1.23a11.5 11.5 0 016.02 0c2.3-1.55 3.3-1.23 3.3-1.23.66 1.66.25 2.88.12 3.18.77.84 1.24 1.91 1.24 3.22 0 4.61-2.81 5.63-5.48 5.92.43.37.81 1.1.81 2.22v3.29c0 .32.22.7.82.58A12.01 12.01 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
-            GitHub
-        </a>
+    </div>
+    <div class="proof-strip">
+        <span>CME Futures</span>
+        <span>Pine Script v6</span>
+        <span>Published on TradingView</span>
+        <span>Source on GitHub</span>
+        <span>Live Market Tested</span>
     </div>
     <div class="scroll-hint"><span></span></div>
 </section>
 
-<!-- INDICATORS -->
 <section id="indicators">
     <div class="container">
         <div class="reveal">
             <p class="section-label">Published Work</p>
-            <h2 class="section-title">Indicators & Strategies</h2>
-            <p class="section-subtitle">Open-source and protected tools built on PineScript v6, tested on live futures markets. All tools are for educational purposes only. Traders are responsible for their own accounts and risk management.</p>
+            <h2 class="section-title">Indicators &amp; Strategies</h2>
+            <p class="section-subtitle">
+                Structured TradingView tools built for futures traders who want framework,
+                context, and repeatable logic. Published tools are educational and designed
+                to support disciplined execution workflows, not signal-chasing.
+            </p>
         </div>
 
         <div class="indicators-grid">
             <div class="indicator-card reveal">
                 <span class="indicator-badge badge-live">Published</span>
                 <h3>Hybrid Strategy: Trend/ORB/MTF v2</h3>
-                <p>A multi-layered execution overlay combining Trend Alignment, Opening Range Breakout, Multi-Timeframe Analysis, and Volatility Indexing. Features a 5-timeframe matrix dashboard, VIX/VXN/GVZ volatility panel, key levels, dual session windows, and configurable execution modes.</p>
+                <p>
+                    A structured futures trading framework that combines trend alignment,
+                    opening range breakout logic, and multi-timeframe confirmation.
+                    Built for traders who want a rules-based overlay rather than isolated signals.
+                </p>
                 <div class="indicator-tags">
                     <span>ORB</span>
-                    <span>Multi-Timeframe</span>
+                    <span>MTF</span>
                     <span>VWAP</span>
+                    <span>Trend</span>
+                    <span>Alerts</span>
                     <span>NQ</span>
                     <span>ES</span>
                     <span>GC</span>
-                    <span>EMA</span>
-                    <span>Trend Analysis</span>
+                </div>
+                <div class="card-actions">
+                    <a href="https://www.tradingview.com/u/EliasVictor/#published-scripts" target="_blank" rel="noopener" class="btn btn-outline">View on TradingView</a>
+                    <a href="https://github.com/eliasvictor-trading" target="_blank" rel="noopener" class="btn btn-outline">View Code</a>
                 </div>
             </div>
 
             <div class="indicator-card reveal">
                 <span class="indicator-badge badge-live">Published</span>
                 <h3>MTF Checklist Dashboard</h3>
-                <p>A multi-timeframe analysis dashboard monitoring 6 customizable timeframes simultaneously. Combines ORB, VWAP, EMAs, and daily levels with a confluence scoring system, volume filtering, and JSON-formatted webhook alerts for execution automation.</p>
+                <p>
+                    A multi-timeframe dashboard for traders who want fast confluence checks
+                    across key timeframes, daily levels, and session context. Designed to support
+                    structured decision-making and automation-ready alert workflows.
+                </p>
                 <div class="indicator-tags">
                     <span>Dashboard</span>
                     <span>Confluence</span>
                     <span>Multi-Timeframe</span>
                     <span>ORB</span>
-                    <span>Day Trading</span>
                     <span>Alerts</span>
+                    <span>Day Trading</span>
+                </div>
+                <div class="card-actions">
+                    <a href="https://www.tradingview.com/u/EliasVictor/#published-scripts" target="_blank" rel="noopener" class="btn btn-outline">View on TradingView</a>
+                    <a href="https://github.com/eliasvictor-trading" target="_blank" rel="noopener" class="btn btn-outline">View Code</a>
                 </div>
             </div>
 
             <div class="indicator-card reveal">
                 <span class="indicator-badge badge-dev">In Development</span>
                 <h3>Correlation Indicator</h3>
-                <p>Currently in development. Systematic tools built around inter-market correlation tracking and visualization, helping traders identify divergences and confirm trends across related instruments.</p>
+                <p>
+                    An upcoming tool focused on inter-market relationships, divergence tracking,
+                    and confirmation across related instruments. Built for traders who want more
+                    context before acting on momentum or trend continuation.
+                </p>
                 <div class="indicator-tags">
                     <span>Correlation</span>
                     <span>Multi-Instrument</span>
+                    <span>Divergence</span>
                     <span>Coming Soon</span>
+                </div>
+                <div class="card-actions">
+                    <a href="#connect" class="btn btn-outline">Follow Updates</a>
                 </div>
             </div>
         </div>
     </div>
 </section>
 
-<!-- ABOUT -->
 <section id="about">
     <div class="container">
         <div class="reveal">
@@ -556,17 +618,21 @@
         <div class="about-content">
             <div class="about-text reveal">
                 <p>
-                    Elias Victor, LLC is a California-based trading technology company focused on building automated indicators 
-                    and strategies for futures markets. 
+                    Elias Victor, LLC is a California-based trading technology company focused on
+                    building structured TradingView tools for CME futures traders.
                 </p>
                 <p>
-                    Our approach centers on strategies combined with analysis across multiple timeframes. Each indicator is tested against live market conditions on futures markets before publication.
+                    The work emphasizes opening range behavior, multi-timeframe context, VWAP,
+                    moving averages, alert logic, and disciplined execution frameworks.
                 </p>
                 <p>
-                    All indicators are built in PineScript v6 on TradingView with source code available on GitHub. 
+                    Tools are developed in Pine Script v6 and refined against live market conditions
+                    before publication.
                 </p>
                 <p>
-                    All tools are for educational purposes only. Traders are responsible for their own accounts and risk management. All tools and code are copyright protected.
+                    Selected repositories may be published with source code under their own license terms.
+                    Site copy, branding, and other proprietary materials remain the property of Elias Victor, LLC.
+                    All tools are provided for educational purposes only.
                 </p>
             </div>
 
@@ -577,15 +643,15 @@
                 </div>
                 <div class="detail-item">
                     <p class="detail-label">Methodology</p>
-                    <p class="detail-value">Opening Range Breakout (ORB), Volume Weighted Average Price (VWAP), Standard Deviation, Multi-Timeframe Analysis, Moving Averages (MA)</p>
+                    <p class="detail-value">Opening Range Breakout, VWAP, multi-timeframe analysis, moving averages, session context, and alert logic</p>
                 </div>
                 <div class="detail-item">
                     <p class="detail-label">Platform</p>
-                    <p class="detail-value">TradingView · PineScript v6</p>
+                    <p class="detail-value">TradingView · Pine Script v6</p>
                 </div>
                 <div class="detail-item">
-                    <p class="detail-label">License</p>
-                    <p class="detail-value">Mozilla Public License 2.0</p>
+                    <p class="detail-label">Licensing</p>
+                    <p class="detail-value">Repository-specific where applicable; branding and site materials retained by Elias Victor, LLC</p>
                 </div>
                 <div class="detail-item">
                     <p class="detail-label">Based In</p>
@@ -596,13 +662,15 @@
     </div>
 </section>
 
-<!-- CONNECT -->
 <section id="connect">
     <div class="container">
         <div class="reveal">
             <p class="section-label">Get In Touch</p>
             <h2 class="section-title">Connect</h2>
-            <p class="section-subtitle">Find our published work, source code, and reach out directly.</p>
+            <p class="section-subtitle">
+                Explore published scripts, review development work, or get in touch about
+                indicators, updates, and future trading-tool projects.
+            </p>
         </div>
 
         <div class="connect-grid">
@@ -612,7 +680,7 @@
                     <polyline points="16 7 22 7 22 13"/>
                 </svg>
                 <h4>TradingView</h4>
-                <p>Published indicators & strategies</p>
+                <p>Published indicators and public scripts</p>
             </a>
 
             <a href="https://github.com/eliasvictor-trading" target="_blank" rel="noopener" class="connect-card reveal">
@@ -620,7 +688,7 @@
                     <path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.2 11.39.6.11.82-.26.82-.58v-2.03c-3.34.73-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.09-.75.08-.73.08-.73 1.2.08 1.84 1.24 1.84 1.24 1.07 1.83 2.81 1.3 3.5 1 .11-.78.42-1.3.76-1.6-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.13-.3-.54-1.52.12-3.18 0 0 1-.32 3.3 1.23a11.5 11.5 0 016.02 0c2.3-1.55 3.3-1.23 3.3-1.23.66 1.66.25 2.88.12 3.18.77.84 1.24 1.91 1.24 3.22 0 4.61-2.81 5.63-5.48 5.92.43.37.81 1.1.81 2.22v3.29c0 .32.22.7.82.58A12.01 12.01 0 0024 12c0-6.63-5.37-12-12-12z"/>
                 </svg>
                 <h4>GitHub</h4>
-                <p>Source code & repositories</p>
+                <p>Repositories, code, and development work</p>
             </a>
 
             <a href="https://www.instagram.com/eliasvictorllc" target="_blank" rel="noopener" class="connect-card reveal">
@@ -630,7 +698,7 @@
                     <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
                 </svg>
                 <h4>Instagram</h4>
-                <p>@eliasvictorllc</p>
+                <p>Updates and brand presence</p>
             </a>
 
             <a href="mailto:eliasvictorllc@gmail.com" class="connect-card reveal">
@@ -639,25 +707,22 @@
                     <polyline points="22,4 12,13 2,4"/>
                 </svg>
                 <h4>Email</h4>
-                <p>eliasvictorllc@gmail.com</p>
+                <p>Current contact: eliasvictorllc@gmail.com</p>
             </a>
         </div>
     </div>
 </section>
 
-<!-- FOOTER -->
 <footer>
     <p>&copy; 2026 Elias Victor, LLC &middot; California</p>
 </footer>
 
 <script>
-    // Navbar scroll effect
     const nav = document.getElementById('navbar');
     window.addEventListener('scroll', () => {
         nav.classList.toggle('scrolled', window.scrollY > 40);
     });
 
-    // Mobile menu
     const toggle = document.getElementById('mobileToggle');
     const links = document.getElementById('navLinks');
     toggle.addEventListener('click', () => {
@@ -667,7 +732,6 @@
         a.addEventListener('click', () => links.classList.remove('open'));
     });
 
-    // Scroll reveal
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(e => {
             if (e.isIntersecting) {
