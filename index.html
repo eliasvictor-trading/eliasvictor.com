@@ -6,8 +6,37 @@
   <title>Elias Victor | Trading Technology &amp; Execution Systems</title>
   <meta
     name="description"
-    content="Systematic trading tools for futures markets. Opening range breakout frameworks, multi-timeframe trend analysis, and webhook-integrated alert systems for ES, NQ, and gold futures."
+    content="Systematic TradingView Pine Script tools for futures markets. Opening range breakout frameworks, VWAP dashboards, multi-timeframe trend analysis, and webhook-integrated alert systems for ES, MES, NQ, MNQ, GC, and MGC futures."
   />
+
+  <link rel="canonical" href="https://www.eliasvictor.com/" />
+
+  <meta property="og:title" content="Elias Victor | Trading Technology &amp; Execution Systems" />
+  <meta property="og:description" content="Systematic trading tools for futures markets, including Opening Range Breakout frameworks, multi-timeframe trend dashboards, and Pine Script indicators for ES, MES, NQ, MNQ, GC, and MGC futures." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.eliasvictor.com/" />
+  <meta property="og:image" content="https://www.eliasvictor.com/logo.png" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Elias Victor | Trading Technology &amp; Execution Systems" />
+  <meta name="twitter:description" content="TradingView Pine Script tools for futures traders, focused on ORB, VWAP, multi-timeframe trend context, and alert automation." />
+  <meta name="twitter:image" content="https://www.eliasvictor.com/logo.png" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Elias Victor, LLC",
+    "url": "https://www.eliasvictor.com",
+    "logo": "https://www.eliasvictor.com/logo.png",
+    "sameAs": [
+      "https://www.tradingview.com/u/EliasVictor/",
+      "https://github.com/eliasvictor-trading",
+      "https://www.instagram.com/eliasvictorllc"
+    ],
+    "description": "Elias Victor, LLC builds systematic trading tools for futures markets, including TradingView Pine Script indicators focused on opening range breakouts, VWAP, multi-timeframe trend analysis, and alert automation."
+  }
+  </script>
 
   <link rel="icon" type="image/x-icon" href="/favicon.ico" />
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
@@ -566,6 +595,15 @@
       border-top: 1px solid rgba(255, 255, 255, 0.06);
     }
 
+    .site-disclaimer {
+      text-align: center;
+      color: var(--text-dim);
+      font-size: 0.82rem;
+      max-width: 760px;
+      margin: 0 auto 1rem;
+      line-height: 1.6;
+    }
+
     footer p {
       text-align: center;
       color: var(--text-dim);
@@ -734,7 +772,8 @@
         <p class="hero-desc">
           Elias Victor builds systematic trading tools for futures markets.
           Current work focuses on opening range breakout frameworks, multi-timeframe
-          trend analysis, and webhook-integrated alert systems for ES, NQ, and gold futures.
+          trend analysis, VWAP dashboards, and webhook-integrated alert systems for
+          ES, MES, NQ, MNQ, GC, and MGC futures.
         </p>
 
         <div class="hero-cta">
@@ -778,31 +817,37 @@
           <p class="section-label">Published Work</p>
           <h2 class="section-title">Indicators &amp; Strategies</h2>
           <p class="section-subtitle">
-            Open-source and published indicators focused on session structure,
-            breakout detection, and multi-timeframe confluence for futures trading.
+            TradingView Pine Script indicators for futures traders, including ORB breakout tools,
+            VWAP dashboards, multi-timeframe trend analysis, and webhook-ready alert systems for
+            ES, MES, NQ, MNQ, GC, and MGC.
           </p>
         </div>
 
         <div class="cards">
           <article class="card reveal">
             <span class="badge badge-live">Published</span>
-            <h3>Hybrid Strategy: Trend/ORB/MTF v2.4</h3>
+            <h3>Hybrid Strategy: Trend/ORB/MTF</h3>
             <p>
               Per-session opening range breakout detection with multi-timeframe trend
               confluence, selectable VWAP anchor, configurable volatility regimes,
-              signal deduplication, and optional JSON webhook alerts.
+              Trade State dashboard context, signal deduplication, and optional JSON webhook alerts.
             </p>
 
             <div class="tags">
+              <span>Current: v2.4.6a</span>
               <span>ORB</span>
               <span>MTF</span>
               <span>VWAP</span>
               <span>Trend</span>
+              <span>Trade State</span>
               <span>Alerts</span>
               <span>JSON Webhooks</span>
-              <span>NQ</span>
               <span>ES</span>
+              <span>MES</span>
+              <span>NQ</span>
+              <span>MNQ</span>
               <span>GC</span>
+              <span>MGC</span>
             </div>
 
             <div class="card-actions">
@@ -821,6 +866,14 @@
                 class="btn btn-secondary"
               >
                 View Code
+              </a>
+              <a
+                href="https://github.com/eliasvictor-trading/hybrid-strategy-mtf-orb/releases"
+                target="_blank"
+                rel="noopener"
+                class="btn btn-secondary"
+              >
+                Release Notes
               </a>
             </div>
           </article>
@@ -1002,6 +1055,9 @@
 
   <footer>
     <div class="container">
+      <p class="site-disclaimer">
+        Tools and content are provided for educational and research purposes only and are not financial advice.
+      </p>
       <p>&copy; 2026 Elias Victor, LLC · California</p>
     </div>
   </footer>
